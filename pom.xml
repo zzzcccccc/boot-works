@@ -64,11 +64,13 @@
             <artifactId>easyexcel</artifactId>
             <version>3.2.1</version>
         </dependency>
+        <!-- @NotNull注解 -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
+            <version>20.1.0</version>
         </dependency>
+
+
     </dependencies>
 </project>
