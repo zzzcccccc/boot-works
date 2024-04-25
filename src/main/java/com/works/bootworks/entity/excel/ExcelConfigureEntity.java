@@ -22,6 +22,7 @@ public class ExcelConfigureEntity implements Serializable {
 
     /**
      * Service名称，Service的路径，反射使用（我这里使用的是Controller）
+     * 亲测：只能使用接口的路径
      */
     private String serviceName;
 
