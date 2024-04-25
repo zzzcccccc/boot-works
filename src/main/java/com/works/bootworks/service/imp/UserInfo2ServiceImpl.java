@@ -5,8 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.works.bootworks.entity.UserInfo;
 import com.works.bootworks.mapper.UserInfo2Mapper;
 import com.works.bootworks.service.UserInfo2Service;
-import com.works.bootworks.service.UserInfoService;
-import com.works.bootworks.utils.ExcelUtil;
+import com.works.bootworks.utils.excel.ExcelUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 

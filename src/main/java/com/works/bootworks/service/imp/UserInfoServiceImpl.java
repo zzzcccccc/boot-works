@@ -1,13 +1,13 @@
 package com.works.bootworks.service.imp;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.works.bootworks.entity.ExcelConfigureEntity;
+import com.works.bootworks.entity.excel.ExcelConfigureEntity;
 import com.works.bootworks.entity.UserInfo;
 import com.works.bootworks.mapper.ExcelConfigureMapper;
 import com.works.bootworks.mapper.UserInfoMapper;
 import com.works.bootworks.service.UserInfoService;
-import com.works.bootworks.utils.ExcelUtil;
-import com.works.bootworks.utils.SpringUtils;
+import com.works.bootworks.utils.excel.ExcelUtil;
+import com.works.bootworks.utils.excel.SpringUtils;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Map;
 
 
 @Service
@@ -37,7 +36,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>
     @Override
     public void exportExcel(HttpServletResponse response) {
 
-        //获取该模板数据
+        //获取该模板数据 测试
         ExcelConfigureEntity excelConfigureEntity = excelConfigureMapper.selectById(3);
         //获取当前上下文环境，spring容器
         //WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
@@ -53,6 +52,9 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>
         Method m = null;
         try {
             m = clazz.getMethod(excelConfigureEntity.getServiceMethodName());
+           // ps1:可传入 条件，Integer.Class,String.Class
+           // m = clazz.getMethod(excelConfigureEntity.getServiceMethodName(),PersonnelDto.class);
+
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -66,7 +68,8 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>
             s = (new StringBuilder()).append(Character.toLowerCase(s.charAt(0))).append(s.substring(1)).toString();
             Object bean = SpringUtils.getBean(s);
             listMap = (List<Object>) m.invoke(bean);
-
+            // ps2: 后边拼接参数，对应ps1设定的类型
+            //listMap = (List<Object>) m.invoke(bean,personnelDto);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -84,6 +87,5 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>
         //  List<UserInfo> userInfos = this.baseMapper.selectList(null);
         //easyPoi，也可以根据模板自定义导出等……
         ExcelUtil.exportExcel(response, excelConfigureEntity.getFileName(), listMap, clazz2);
-
     }
 }

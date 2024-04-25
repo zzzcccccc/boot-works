@@ -1,4 +1,4 @@
-package com.works.bootworks.entity;
+package com.works.bootworks.entity.excel;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
