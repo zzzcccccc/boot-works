@@ -29,6 +29,7 @@ public class WordPoiController {
 
     /**
      * XWPFDocument 方式（不推荐）
+     * org.apache.poi   apache
      * @param response
      */
     @SneakyThrows
@@ -67,6 +68,7 @@ public class WordPoiController {
 
     /**
      * XWPFTemplate 方式（推荐）
+     * com.deepoove.poi  poi-tl(apache的升级)
      * 固定字段 行数
      * @param response
      */

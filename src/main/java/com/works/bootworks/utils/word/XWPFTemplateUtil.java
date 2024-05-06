@@ -11,8 +11,9 @@ import java.nio.charset.StandardCharsets;
 /**
  * @date 2024-04-25
  * XWPFTemplate 方式  【推荐】
+ * com.deepoove.poi  poi-tl(apache的升级)
  * 占位符: {{}} word占位用{{object}}比较完美可以填充图片
- * 字体样式：在word文件中设计好就行，会自动替换值，样式保留
+ * 字体样式：在word文件中设计好就行，会自动替换值，样式保留。模版即样式，模版引擎无需考虑样式，只关心数据
  */
 public class XWPFTemplateUtil {
 

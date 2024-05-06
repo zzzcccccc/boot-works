@@ -12,8 +12,9 @@ import java.util.regex.Pattern;
 /**
  * @date 2024-04-25
  * XWPFDocument 方式 【不推荐】
+ * org.apache.poi   apache
  * 占位符：${} word占位${object}有缺陷不能填充图片
- * 字体样式：可能需要代码编辑 XWPFRun run = para.createRun();run.setText(runText, 0); 不方便
+ * 字体样式：需要代码编辑 XWPFRun run = para.createRun();run.setText(runText, 0); 不方便
  */
 public class XWPFDocumentUtil {
 
